@@ -1,0 +1,3 @@
+select name from syscolumns where id=object_id('表名')
+ 
+select count(1) 统计数 from syscolumns where id=object_id('表名')
