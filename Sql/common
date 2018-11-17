@@ -1,0 +1,23 @@
+1. 向表中添加新的字段
+   alter  table  table_name  add  column_name  varchar(20) not null
+2. 删除表中的一个字段
+    delete table table_name column column_name
+3. 修改表中的一个字段名
+exec sp_rename '表明.原列名','新列名','column';
+4.修改字段类型
+alter table Mid_Tb_Refund_Log 
+alter column ResponseContent varchar(max)
+5.修改存储过程名字
+EXEC sp_rename '旧名', '新名'
+6.新增索引
+create index 索引名 on 表名（字段）
+create  index ix_invoices_ID on invoices_log(DDH)
+7.查询该表中的索引
+exec sp_helpindex '表名'
+
+8.修改schema
+alter schema sm transfer [dbo].[Sheet1$]
+修改后的表明为：sm.Sheet1$
+
+EXISTS与IN的使用效率的问题，通常情况下采用exists要比in效率高，因为IN不走索引，但要看实际情况具体使用：
+IN适合于外表大而内表小的情况；EXISTS适合于外表小而内表大的情况
